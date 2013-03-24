@@ -10,11 +10,12 @@
 
 #include <iostream>
 #include "cmdline_parser.h"
+#include "Bucket_String.h"
 
 
 
 int main(int argc, char * argv[])
-{	
+{	using namespace BRNDAN022;
 //Code from assignment 1 (to be reused for cmdline input)	
 	// Instantiate the parser
 	cmdline_parser parser;
@@ -27,6 +28,10 @@ int main(int argc, char * argv[])
 		std::cerr << "Couldn't process command line arguments" << std::endl;
 		return 1;
 	}
+
+
+	//Bucket_String testme - checks object construction;
+	Bucket_String testme;
 
 	// Print command line help to the standard output stream, if required
 	//if(parser.should_print_help())
