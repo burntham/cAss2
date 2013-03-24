@@ -13,5 +13,4 @@
 namespace BRNDAN022
 {
 
-	//Constructor
 }
