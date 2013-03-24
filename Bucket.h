@@ -3,8 +3,12 @@
 
 namespace BRNDAN022
 {
-	
 
+class Bucket
+{
+	Bucket(int t);
+
+};
 
 }
 

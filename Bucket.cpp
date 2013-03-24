@@ -8,10 +8,15 @@
  *	This is Bucket class
  */
 
+#include "Bucket.h"
 
-#include <list>
 namespace BRNDAN022
 {
+
+	Bucket::Bucket(int t)
+	{
+
+	}
 
 	//Constructor
 }
