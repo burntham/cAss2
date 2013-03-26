@@ -27,9 +27,9 @@ namespace BRNDAN022
 	};
 
 	//Construct the bucket string with a specifed bucket size;
-	Bucket_String::Bucket_String(int bucketSize_):nOfBuckets(0), BucketSize(bucketSize_), firstBuck(new Bucket(BucketSize))
+	Bucket_String::Bucket_String(int bucketSize_):nOfBuckets(0), BucketSize(bucketSize_), firstBuck(new Bucket(bucketSize_))
 	{
-		std::cout<<"bucketString constructed"<<std::endl;
+		std::cout<<"bucketString constructed"<<BucketSize<<std::endl;
 	};
 
 	//Called by the >> operator! - adds new characters to the end of the buckets (or creating new ones if they are full)

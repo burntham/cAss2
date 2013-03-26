@@ -13,8 +13,8 @@
 
 namespace BRNDAN022
 {
-	Bucket * Head=NULL;
-	Bucket * child=NULL;
+	Bucket * Head;
+	Bucket * child;
 	//char array holding this buckets segment of the string
 	char* content;
 
@@ -22,34 +22,45 @@ namespace BRNDAN022
 	int count;
 
 	//Consturctors
-	Bucket::Bucket(Bucket * daddy, int bucketsize):content(new char[bucketsize]),bucket_size(bucketsize)
+	Bucket::Bucket(Bucket * daddy, int bucketsize):content(new char[bucketsize]),bucket_size(bucketsize),Head(daddy),count(0)
 	{	
-		Head = daddy;
+		std::cout<<"Bucket Constructed"<<std::endl;
 
 	}
 
-	Bucket::Bucket(int bucketsize):content(new char[bucketsize]),bucket_size(bucketsize)
+	Bucket::Bucket(int bucketsize):content(new char[bucketsize]),bucket_size(bucketsize),Head(NULL),child(NULL),count(0)
 	{	std::cout<<"Bucket Constructed"<<std::endl;
 
 	}
 
 	//invoked through >>
 	void Bucket::addChar(char c){
-		if (count < bucket_size-1)
-		{
+		//std::cout<<count<<" "<<bucket_size<<std::endl;
+
+		if (count < (bucket_size-1))
+		{	count++;
 			content[count]=c;
+			
 		}else
-		{
-			child = new Bucket(this, bucket_size);
-			child->addChar(c);
+		{	//std::cout<<"duck "<<c<<std::endl;
+			if(child==NULL){
+				child = new Bucket(this, bucket_size);
+				child->addChar(c);
+			}else{
+				child->addChar(c);
+			}
+			
+			
 		}
+		//std::cout<<"tested";
 	}
 
-	void Bucket::outAll(std::ostream & os)
+	std::ostream & Bucket::outAll(std::ostream & os)
 	{
 		for (int i = 0; i < count; ++i)
 		{
 			os<<content[i];
 		}
+		return os;
 	}
 }

@@ -17,15 +17,17 @@ namespace BRNDAN022
 		friend std::ostream & operator<<(std::ostream & os, const Bucket_String & bs)
 		{	Bucket * parent = bs.firstBuck;	
 			Bucket * hasChild = bs.firstBuck->child;
-				if (hasChild)
+				if (hasChild!=NULL)
 				{
-					while(hasChild)
-					{
+					while(hasChild!=NULL)
+					{ 
 						parent->outAll(os);
 						parent = hasChild;
 						hasChild = parent->child;
+						//parent->outAll(os);
 					}
-					return os;
+
+					//return os;
 				}
 				parent->outAll(os);
 				return os;		
@@ -33,16 +35,17 @@ namespace BRNDAN022
 
 		//input a string into the buckets
 		friend std::istream & operator>>(std::istream & is, Bucket_String & bs)
-		{	std::string test;
+		{
+			
 			while (!is.eof())
 			{	
-				char temp;
-
-				is>>temp;
-				std::cout<<temp<<std::endl;
-				test+=temp;
-				if (!is.eof()) bs.addChar(temp);
+				char temp ='a';
+				is>>temp;				
+				bs.addChar(temp);
+				std::cout<<temp<<" added"<<std::endl;
+				
 			}
+
 			//return is;
 		};
 	//methods

@@ -31,10 +31,12 @@ int main(int argc, char * argv[])
 		return 1;
 	}	
 
-	Bucket_String test(6);
+	Bucket_String test(2);
 	//std::cout<<test;
-	std::istringstream testString("1");
+	std::istringstream testString("123");
 	testString>>test;
+
+	std::cout<<testString;
 
 
 	// Print command line help to the standard output stream, if required

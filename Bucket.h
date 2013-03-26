@@ -18,7 +18,7 @@ namespace BRNDAN022
 		//Construct a Bucket which is being added to the end of a list
 		Bucket(Bucket * Daddy, int bucketsize);
 		Bucket(int bucketsize);
-		void outAll(std::ostream & os);
+		std::ostream & outAll(std::ostream & os);
 		/*
 		*Methods
 		*/
