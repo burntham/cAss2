@@ -11,23 +11,25 @@ namespace BRNDAN022
 		/*
 		*Constructors
 		*/
-		Bucket(int arSize);
-
+		//Construct a Bucket which is being added to the end of a list
+		Bucket(Bucket * Daddy, int arrSize);
+		Bucket(int arrSize);
 		/*
 		*Methods
 		*/
 			//Return iterator pointing at the first character of the string
-		Iterator begin();
+		iterator begin();
 			//return an iterator pointing one location past the last string character
-		Iterator end();
+		iterator end();
 
 
 		~Bucket()
 		{
 			delete [] content;
 		}
+
 	private:
-		friend class Iterator;
+		friend class iterator;
 		friend class Bucket_String;
 		/*
 		*Variables

@@ -12,6 +12,7 @@
 
 namespace BRNDAN022{
 
-		Iterator::Iterator(void){};
+		iterator::iterator(void)
+		{};
 
 }

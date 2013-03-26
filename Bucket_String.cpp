@@ -15,13 +15,12 @@
 
 //Cannot use linked list!
 namespace BRNDAN022
-{	
-	Bucket * Head = NULL;
+{
 	int nOfBuckets;
 
 	Bucket_String::Bucket_String(void):nOfBuckets(0)
-	{	
-		//Head = NULL;
+	{
+
 	};
 
 	/*To be implemented!

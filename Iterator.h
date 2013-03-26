@@ -3,10 +3,10 @@
 
 namespace BRNDAN022{
 
-	class Iterator{
+	class iterator{
 		//private:
 			//default constructor (must be private)
-			Iterator(void);
+			iterator(void);
 
 	};
 
