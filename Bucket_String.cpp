@@ -18,7 +18,7 @@ namespace BRNDAN022
 {
 	int nOfBuckets;
 	int BucketSize;
-	Bucket * firstBuck;
+	Bucket * firstBuck=NULL;
 
 	//Default constructor
 	Bucket_String::Bucket_String(void)
@@ -32,9 +32,9 @@ namespace BRNDAN022
 		std::cout<<"bucketString constructed"<<std::endl;
 	};
 
-	//Called by the >> operator!
+	//Called by the >> operator! - adds new characters to the end of the buckets (or creating new ones if they are full)
 	void Bucket_String::addChar(char c)
 	{
-
+		firstBuck->addChar(c);
 	}
 }

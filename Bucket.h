@@ -2,6 +2,7 @@
 #define _BUCKET_H_
 
 #include "Iterator.h"
+#include <iostream>
 
 namespace BRNDAN022
 {
@@ -9,12 +10,15 @@ namespace BRNDAN022
 	{
 	public:
 		char * content;
+		//next bucket in linked list
+		Bucket * child;
 		/*
 		*Constructors
 		*/
 		//Construct a Bucket which is being added to the end of a list
-		Bucket(Bucket * Daddy, int arrSize);
-		Bucket(int arrSize);
+		Bucket(Bucket * Daddy, int bucketsize);
+		Bucket(int bucketsize);
+		void outAll(std::ostream & os);
 		/*
 		*Methods
 		*/
@@ -32,6 +36,9 @@ namespace BRNDAN022
 	private:
 		friend class iterator;
 		friend class Bucket_String;
+		//how many items are currently stored?
+		int count;
+		int bucket_size;
 		/*
 		*Variables
 		*/
@@ -39,8 +46,7 @@ namespace BRNDAN022
 		Bucket * Head;
 			//Array contents (actual string piece)
 		
-			//next bucket in linked list
-		Bucket * child;
+
 
 		//invoked through >>
 		void addChar(char c);

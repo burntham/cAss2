@@ -13,28 +13,43 @@
 
 namespace BRNDAN022
 {
-	Bucket * Head;
-	Bucket * child;
+	Bucket * Head=NULL;
+	Bucket * child=NULL;
 	//char array holding this buckets segment of the string
 	char* content;
 
+	int bucket_size;
+	int count;
+
 	//Consturctors
-	Bucket::Bucket(Bucket * daddy, int arSize):content(new char[arSize])
+	Bucket::Bucket(Bucket * daddy, int bucketsize):content(new char[bucketsize]),bucket_size(bucketsize)
 	{	
 		Head = daddy;
 
 	}
 
-	Bucket::Bucket(int arrSize):content(new char[arrSize])
+	Bucket::Bucket(int bucketsize):content(new char[bucketsize]),bucket_size(bucketsize)
 	{	std::cout<<"Bucket Constructed"<<std::endl;
-	  	for (int i = 0; i < 5; ++i)
-	  	{
-	  		content[i] = 'a';
-	  	}
+
 	}
 
 	//invoked through >>
 	void Bucket::addChar(char c){
+		if (count < bucket_size-1)
+		{
+			content[count]=c;
+		}else
+		{
+			child = new Bucket(this, bucket_size);
+			child->addChar(c);
+		}
+	}
 
+	void Bucket::outAll(std::ostream & os)
+	{
+		for (int i = 0; i < count; ++i)
+		{
+			os<<content[i];
+		}
 	}
 }

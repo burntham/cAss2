@@ -32,7 +32,10 @@ int main(int argc, char * argv[])
 	}	
 
 	Bucket_String test(6);
-	std::cout<<test;
+	//std::cout<<test;
+	std::istringstream testString("1");
+	testString>>test;
+
 
 	// Print command line help to the standard output stream, if required
 	//if(parser.should_print_help())
