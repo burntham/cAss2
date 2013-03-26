@@ -4,9 +4,25 @@
 namespace BRNDAN022{
 
 	class iterator{
-		//private:
+		private:
 			//default constructor (must be private)
 			iterator(void);
+
+		public:
+			* operator ()
+			{
+
+			}
+
+			operator ++ ()
+			{
+
+			}
+
+			operator -- (){
+				
+			}
+
 
 	};
 

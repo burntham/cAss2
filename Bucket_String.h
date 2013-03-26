@@ -42,12 +42,12 @@ namespace BRNDAN022
 			return ref;
 		}	
 
-		replace(iterator first, iterator last, Bucket_String bs)
+		void replace(iterator first, iterator last, Bucket_String bs)
 		{
 
 		}
 
-		insert(iterator first, Bucket_String bs)
+		void insert(iterator first, Bucket_String bs)
 		{
 
 		}
@@ -57,8 +57,6 @@ namespace BRNDAN022
 			Bucket_String buck;
 			return buck;
 		}
-
-
 	};
 }
 
