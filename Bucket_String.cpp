@@ -29,7 +29,7 @@ namespace BRNDAN022
 	//Construct the bucket string with a specifed bucket size;
 	Bucket_String::Bucket_String(int bucketSize_):nOfBuckets(0), BucketSize(bucketSize_), firstBuck(new Bucket(BucketSize))
 	{
-
+		std::cout<<"bucketString constructed"<<std::endl;
 	};
 
 	//Called by the >> operator!

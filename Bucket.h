@@ -8,6 +8,7 @@ namespace BRNDAN022
 	class Bucket
 	{
 	public:
+		char * content;
 		/*
 		*Constructors
 		*/
@@ -37,7 +38,7 @@ namespace BRNDAN022
 			//head node?
 		Bucket * Head;
 			//Array contents (actual string piece)
-		char * content;
+		
 			//next bucket in linked list
 		Bucket * child;
 

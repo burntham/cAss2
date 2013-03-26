@@ -26,8 +26,11 @@ namespace BRNDAN022
 	}
 
 	Bucket::Bucket(int arrSize):content(new char[arrSize])
-	{
-
+	{	std::cout<<"Bucket Constructed"<<std::endl;
+	  	for (int i = 0; i < 5; ++i)
+	  	{
+	  		content[i] = 'a';
+	  	}
 	}
 
 	//invoked through >>

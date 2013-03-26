@@ -3,8 +3,9 @@
 
 #include "Iterator.h"
 #include "Bucket.h"
-#include <ostream>
-#include <istream>
+//#include <ostream>
+//#include <istream>
+#include <iostream>
 
 namespace BRNDAN022
 {
@@ -16,15 +17,22 @@ namespace BRNDAN022
 		friend std::size_t length();
 
 		friend std::ostream & operator<<(std::ostream & os, const Bucket_String & bs)
-		{
+		{	
+			for (int i = 0; i < 5; ++i)
+			{
+				os<<bs.firstBuck->content[i]<<std::endl;
+			}
+
+			return os;
 
 		};
-		friend std::istream & operator>>(Bucket_String & bs, std::istream & is)
+		friend std::istream & operator>>(std::istream & is, Bucket_String & bs)
 		{
 			while (!is.eof())
 			{
 				char temp;
 				is>>temp;
+				bs.addChar(temp);
 				
 			}
 			return is;
