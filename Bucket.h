@@ -40,6 +40,9 @@ namespace BRNDAN022
 		char * content;
 			//next bucket in linked list
 		Bucket * child;
+
+		//invoked through >>
+		void addChar(char c);
 	};
 
 }

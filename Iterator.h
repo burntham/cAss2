@@ -9,20 +9,17 @@ namespace BRNDAN022{
 			iterator(void);
 
 		public:
-			* operator ()
-			{
 
-			}
+			//char *operator ();
+			//prefix
+			iterator & operator++ ();
+			//postfix
+			iterator operator++(int);
 
-			operator ++ ()
-			{
-
-			}
-
-			operator -- (){
-				
-			}
-
+			//prefix
+			iterator & operator-- ();
+			//postfix
+			iterator operator--(int);
 
 	};
 

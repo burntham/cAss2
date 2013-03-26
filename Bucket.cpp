@@ -15,7 +15,7 @@ namespace BRNDAN022
 {
 	Bucket * Head;
 	Bucket * child;
-
+	//char array holding this buckets segment of the string
 	char* content;
 
 	//Consturctors
@@ -27,6 +27,11 @@ namespace BRNDAN022
 
 	Bucket::Bucket(int arrSize):content(new char[arrSize])
 	{
+
+	}
+
+	//invoked through >>
+	void Bucket::addChar(char c){
 
 	}
 }

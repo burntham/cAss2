@@ -12,51 +12,50 @@ namespace BRNDAN022
 	{
 	private: 
 		friend class iterator;
-		friend std::ostream & operator<<(std::ostream & os, const Bucket_String & bs);
-		friend std::istream & operator>>(const Bucket_String & bs, std::istream & is);
 
+		friend std::size_t length();
+
+		friend std::ostream & operator<<(std::ostream & os, const Bucket_String & bs)
+		{
+
+		};
+		friend std::istream & operator>>(Bucket_String & bs, std::istream & is)
+		{
+			while (!is.eof())
+			{
+				char temp;
+				is>>temp;
+				
+			}
+			return is;
+		};
+	//methods
+		//Add a character to the Bucket_String
+		void addChar(char c);
+	//Variables/etc
+		Bucket * firstBuck;
 		int nOfBuckets;
+		int BucketSize;
 	public:
+		//default constructor
 		Bucket_String(void);
+		//constructed with specified size;
+		Bucket_String(int bucketSize_);
 		//Return iterator pointing at the first character of the string
 		iterator begin();
 		//return an iterator pointing one location past the last string character
 		iterator end();
 
-		/*
-		*Operator Overrides
-		*/
-		friend std::ostream & operator<<(std::ostream & os, const Bucket_String & bs)
-		{
-			return os;
-		};
-		friend std::istream & operator>>(const Bucket_String & bs, std::istream & is)
-		{
-			return is;
-		};
 
-		char & operator [](int index)
-		{
-			char * ptr = new char[5];
-			char & ref = *ptr;
-			return ref;
-		}	
 
-		void replace(iterator first, iterator last, Bucket_String bs)
-		{
+	//Operator overrides
+		char & operator [](int index);
 
-		}
+		void replace(iterator first, iterator last, Bucket_String bs);
 
-		void insert(iterator first, Bucket_String bs)
-		{
+		void insert(iterator first, Bucket_String bs);
 
-		}
-
-		Bucket_String substr(iterator first, iterator last)
-		{
-			Bucket_String buck;
-			return buck;
-		}
+		Bucket_String substr(iterator first, iterator last);
 	};
 }
 

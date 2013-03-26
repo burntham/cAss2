@@ -17,17 +17,24 @@
 namespace BRNDAN022
 {
 	int nOfBuckets;
+	int BucketSize;
+	Bucket * firstBuck;
 
-	Bucket_String::Bucket_String(void):nOfBuckets(0)
+	//Default constructor
+	Bucket_String::Bucket_String(void)
 	{
 
 	};
 
-	/*To be implemented!
-	* Linking of buckets,
-	* Buckets
-	*Storage of character arrays in buckets
-	*etc - Read course stuff!
-	*
-	*/
+	//Construct the bucket string with a specifed bucket size;
+	Bucket_String::Bucket_String(int bucketSize_):nOfBuckets(0), BucketSize(bucketSize_), firstBuck(new Bucket(BucketSize))
+	{
+
+	};
+
+	//Called by the >> operator!
+	void Bucket_String::addChar(char c)
+	{
+
+	}
 }

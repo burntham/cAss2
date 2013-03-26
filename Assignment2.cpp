@@ -11,6 +11,7 @@
 #include <iostream>
 #include "cmdline_parser.h"
 #include "Bucket_String.h"
+#include <istream>
 
 
 
@@ -28,10 +29,6 @@ int main(int argc, char * argv[])
 		std::cerr << "Couldn't process command line arguments" << std::endl;
 		return 1;
 	}
-
-
-	//Bucket_String testme - checks object construction;
-	Bucket_String testme;
 
 	// Print command line help to the standard output stream, if required
 	//if(parser.should_print_help())
