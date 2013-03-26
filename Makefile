@@ -1,6 +1,6 @@
 CC=g++
 FLAGS = -c
-OBJECTS = Assignment2.o cmdline_parser.o Bucket_String.o
+OBJECTS = Assignment2.o cmdline_parser.o Bucket_String.o Bucket.o Iterator.o
 LIBRARIES = -lboost_program_options
 TARGET= testme
 #RUNNINGARGS =  
@@ -9,7 +9,7 @@ TARGET= testme
 All: $(OBJECTS)
 	$(CC) $(OBJECTS) -o $(TARGET) $(LIBRARIES)
 
-run: All clean
+run: All
 	./$(TARGET)
 
 Assignment2.o: Assignment2.cpp cmdline_parser.o Bucket_String.o
@@ -24,8 +24,8 @@ Bucket_String.o: Bucket.o Bucket_String.cpp Bucket_String.h
 Bucket.o: Bucket.cpp
 	$(CC) $(FLAGS) Bucket.cpp
 
-clean: clear
-	rm -f *.o
+Iterator.o: Iterator.cpp Iterator.h
+	$(CC) $(FLAGS) Iterator.cpp
 
-clear:
-	clear
+clean:
+	rm -f *.o ; clear

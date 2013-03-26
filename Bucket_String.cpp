@@ -9,13 +9,19 @@
  */
 
 #include "Bucket_String.h"
+#include "Bucket.h"
 #include <iostream>
+ //#include <cstddef>
 
 //Cannot use linked list!
 namespace BRNDAN022
 {	
-	Bucket_String::Bucket_String(void){
-		std::cout<<"this is a test call"<<std::endl;
+	Bucket * Head = NULL;
+	int nOfBuckets;
+
+	Bucket_String::Bucket_String(void):nOfBuckets(0)
+	{	
+		//Head = NULL;
 	};
 
 	/*To be implemented!

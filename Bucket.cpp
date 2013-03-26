@@ -9,14 +9,17 @@
  */
 
 #include "Bucket.h"
+ #include "iostream"
 
 namespace BRNDAN022
 {
 
-	Bucket::Bucket(int t)
-	{
+	char* content;
 
+	//Consturctors
+	Bucket::Bucket(int arSize):content(new char[arSize])
+	{	
+
+		
 	}
-
-	//Constructor
 }
