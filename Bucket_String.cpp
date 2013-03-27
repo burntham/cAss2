@@ -62,16 +62,13 @@ namespace BRNDAN022
 	};
 
 	iterator::iterator(int index,Bucket_String * bs):charPTR(NULL)
-	{	
-
+	{
 			int bucketIndex = (int)(index/(bs->BucketSize));
-			//std::cout<<"bucketIndex is "<<bucketIndex<<std::endl;
 			int contentIndex = index - ((bs->BucketSize)*(bucketIndex));
-			//std::cout<<"contentIndex is "<<contentIndex<<std::endl;
 
 			if (index<(bs->BucketSize)){
 				charPTR= &(bs->firstBuck->content[index]);
-				std::cout<<"what should be there?"<<bs->firstBuck->content[index]<<std::endl;
+				//std::cout<<"what should be there?"<<bs->firstBuck->content[index]<<std::endl;
 			}
 			else{
 					Bucket * BucketPew =bs->firstBuck;	
@@ -81,7 +78,7 @@ namespace BRNDAN022
 				}
 				charPTR= &(BucketPew->content[contentIndex]);
 			}
-			std::cout<<*charPTR<<std::endl;
+			//std::cout<<*charPTR<<std::endl;
 	};
 	
 }

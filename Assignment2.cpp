@@ -32,7 +32,7 @@ int main(int argc, char * argv[])
 *	testing
 */
 	//create a bucket string with bucket size 7
-	Bucket_String test(4);
+	Bucket_String test(7);
 	//create a string input stream
 	std::istringstream testString("012345678abcde");
 	//test operator overloading by dumping the streams contents into the bucketString
@@ -40,7 +40,7 @@ int main(int argc, char * argv[])
 	//output the contents of the string
 	iterator t = test.begin();
 	std::cout<<"output Test "<<test<<std::endl;
-	std::cout<<"OUTPUT TEST "<<test[10]<<std::endl;
+	std::cout<<"OUTPUT TEST "<<test[7]<<std::endl;
 	std::cout<<"dereferencer thingy test "<<*t;
 
 

@@ -75,9 +75,9 @@ namespace BRNDAN022
 	//Operator overrides
 char & operator[] (int index){
 			int bucketIndex = (index/BucketSize);
-			std::cout<<"bucketIndex is "<<bucketIndex<<std::endl;
+			std::cout<<"bucketIndex is "<<bucketIndex-1<<std::endl;
 			int contentIndex = index - (BucketSize*(bucketIndex));
-			std::cout<<"contentIndex is "<<contentIndex<<std::endl;
+			std::cout<<"contentIndex is "<<contentIndex-1<<std::endl;
 
 
 			if (index<BucketSize){
@@ -111,12 +111,11 @@ char & operator[] (int index){
 			//default constructor (must be private)
 			iterator(int index_,Bucket_String * bs);
 			char * charPTR;
+			int index;
 			
 		public:
-			iterator(void);		
-		
+			iterator(void);	
 			
-			int index;
 			//char *operator ();
 			//prefix
 			iterator & operator++ ();
@@ -129,9 +128,9 @@ char & operator[] (int index){
 			iterator operator--(int);
 
 			//*prt (dereference pointer)
-			char * operator*(void){
-				char * address  = charPTR;
-				return address;
+			 char operator*(void){
+				 char  character  = *charPTR;
+				return character;
 			};
 			
 
