@@ -4,6 +4,7 @@
 #include "Iterator.h"
 #include "Bucket.h"
 #include <iostream>
+#include "math.h"
 
 namespace BRNDAN022
 {
@@ -67,7 +68,18 @@ namespace BRNDAN022
 
 
 	//Operator overrides
-		char & operator [](int index);
+		char & operator [](int index){
+			int bucketIndex = ceil((double)index/BucketSize);
+			int contentIndex = index - (bucketIndex*BucketSize);
+
+			if (bucketIndex==1){
+				char & charRef= &(*firstBuck->content[contentIndex]);
+			}
+			for (int i = 0; i < bucketIndex; ++i)
+			{
+				/* code */
+			}
+		}
 
 		void replace(iterator first, iterator last, Bucket_String bs);
 

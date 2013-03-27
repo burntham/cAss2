@@ -33,7 +33,7 @@ namespace BRNDAN022
 
 	}
 
-	//invoked through >>
+	//invoked through >> operator
 	void Bucket::addChar(char c){
 		std::cout<<"attempting to add "<<c<<std::endl;
 		std::cout<<"count is:"<<count<<"bucket_size is"<<bucket_size<<std::endl;
