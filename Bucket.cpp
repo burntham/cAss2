@@ -22,7 +22,7 @@ namespace BRNDAN022
 	int count;
 
 	//Consturctors
-	Bucket::Bucket(Bucket * daddy, int bucketsize):content(new char[bucketsize]),bucket_size(bucketsize),Head(daddy),count(0)
+	Bucket::Bucket(Bucket * daddy, int bucketsize):content(new char[bucketsize]),bucket_size(bucketsize),Head(daddy),child(NULL),count(0)
 	{	
 		std::cout<<"Bucket Constructed"<<std::endl;
 
@@ -35,21 +35,21 @@ namespace BRNDAN022
 
 	//invoked through >>
 	void Bucket::addChar(char c){
-		//std::cout<<count<<" "<<bucket_size<<std::endl;
+		std::cout<<"attempting to add "<<c<<std::endl;
+		std::cout<<"count is:"<<count<<"bucket_size is"<<bucket_size<<std::endl;
 
-		if (count < (bucket_size-1))
-		{	count++;
-			content[count]=c;
+		if (count < (bucket_size))
+		{	++count;
+			content[count-1]=c;
 			
 		}else
 		{	//std::cout<<"duck "<<c<<std::endl;
 			if(child==NULL){
-				child = new Bucket(this, bucket_size);
+				child = new Bucket(this,bucket_size);
 				child->addChar(c);
 			}else{
 				child->addChar(c);
-			}
-			
+			}			
 			
 		}
 		//std::cout<<"tested";

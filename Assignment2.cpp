@@ -31,7 +31,7 @@ int main(int argc, char * argv[])
 		return 1;
 	}	
 
-	Bucket_String test(2);
+	Bucket_String test(1);
 	//std::cout<<test;
 	std::istringstream testString("123");
 	testString>>test;
