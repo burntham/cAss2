@@ -70,15 +70,16 @@ namespace BRNDAN022
 	//Operator overrides
 		char & operator[] (int index){
 			int bucketIndex = ceil((double)index/BucketSize);
-			int contentIndex = index - (bucketIndex*BucketSize);
+			std::cout<<"bucketIndex is "<<bucketIndex<<std::endl;
+			int contentIndex = index - (BucketSize*bucketIndex);
 
-			if (bucketIndex==1){
-				char & charRef= firstBuck->content[contentIndex];
+			if (index<BucketSize){
+				char & charRef= firstBuck->content[index];
 				return charRef;
 			}
 			else{
 					Bucket * BucketPew =firstBuck;	
-				for (int i = 1; i < bucketIndex; ++i)
+				for (int i = 0; i < bucketIndex; ++i)
 				{
 					BucketPew = BucketPew->child;
 				}
