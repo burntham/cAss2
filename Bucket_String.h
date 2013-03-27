@@ -41,7 +41,7 @@ namespace BRNDAN022
 				is>>temp;	
 				if (!is.eof()){
 					bs.addChar(temp);
-				std::cout<<temp<<" added"<<std::endl;				
+				//std::cout<<temp<<" added"<<std::endl;				
 				}
 				
 			}
@@ -70,7 +70,7 @@ namespace BRNDAN022
 	//Operator overrides
 		char & operator[] (int index){
 			int bucketIndex = ceil((double)index/BucketSize);
-			std::cout<<"bucketIndex is "<<bucketIndex<<std::endl;
+			//std::cout<<"bucketIndex is "<<bucketIndex<<std::endl;
 			int contentIndex = index - (BucketSize*bucketIndex);
 
 			if (index<BucketSize){

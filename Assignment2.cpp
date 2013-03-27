@@ -11,8 +11,6 @@
 #include <iostream>
 #include "cmdline_parser.h"
 #include "Bucket_String.h"
-//#include <istream>
-//#include <iostream>
 #include <sstream>
 
 
@@ -30,12 +28,18 @@ int main(int argc, char * argv[])
 		std::cerr << "Couldn't process command line arguments" << std::endl;
 		return 1;
 	}	
-
-	Bucket_String test(1);
-	std::istringstream testString("123");
+/*
+*	testing
+*/
+	//create a bucket string with bucket size 7
+	Bucket_String test(7);
+	//create a string input stream
+	std::istringstream testString("01234567");
+	//test operator overloading by dumping the streams contents into the bucketString
 	testString>>test;
+	//output the contents of the string
 	std::cout<<"output Test"<<test<<std::endl;
-	std::cout<<"OUTPUT TEST"<<test[]<<std::endl;
+	std::cout<<"OUTPUT TEST"<<test[7]<<std::endl;
 
 
 	// Print command line help to the standard output stream, if required
