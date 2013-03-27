@@ -38,8 +38,10 @@ int main(int argc, char * argv[])
 	//test operator overloading by dumping the streams contents into the bucketString
 	testString>>test;
 	//output the contents of the string
+	iterator t = test.begin();
 	std::cout<<"output Test "<<test<<std::endl;
-	std::cout<<"OUTPUT TEST "<<test[0]<<std::endl;
+	std::cout<<"OUTPUT TEST "<<test[10]<<std::endl;
+	std::cout<<"dereferencer thingy test "<<*t;
 
 
 	// Print command line help to the standard output stream, if required

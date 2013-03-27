@@ -1,6 +1,6 @@
 CC=g++
 FLAGS = -c
-OBJECTS = Assignment2.o cmdline_parser.o Bucket_String.o Bucket.o Iterator.o
+OBJECTS = Assignment2.o cmdline_parser.o Bucket_String.o Bucket.o
 LIBRARIES = -lboost_program_options
 TARGET= testme
 #RUNNINGARGS =  

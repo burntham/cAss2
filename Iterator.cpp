@@ -18,7 +18,7 @@ namespace BRNDAN022{
 
 		};
 
-		iterator::iterator(int index_, Bucket_String * bs)
+		iterator::iterator(int index_)
 		{
 
 		};

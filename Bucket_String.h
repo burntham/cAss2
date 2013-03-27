@@ -5,11 +5,12 @@
 #include "Bucket.h"
 #include <iostream>
 #include "math.h"
-#include "Iterator.h"
 
 namespace BRNDAN022
-{
-	class Bucket_String 
+{	//iterator iter;
+	class iterator;
+
+	class Bucket_String
 	{
 	private: 
 		friend class iterator;
@@ -101,6 +102,42 @@ char & operator[] (int index){
 
 		Bucket_String substr(iterator first, iterator last);
 	};
+
+	class iterator{
+			friend class Bucket_String;
+			friend class Bucket;
+			
+		private:
+			//default constructor (must be private)
+			iterator(int index_,Bucket_String * bs);
+			char * charPTR;
+			
+		public:
+			iterator(void);		
+		
+			
+			int index;
+			//char *operator ();
+			//prefix
+			iterator & operator++ ();
+			//postfix
+			iterator operator++(int);
+
+			//prefix
+			iterator & operator-- ();
+			//postfix
+			iterator operator--(int);
+
+			//*prt (dereference pointer)
+			char * operator*(void){
+				char * address  = charPTR;
+				return address;
+			};
+			
+
+	};
+
+	
 }
 
 #endif
