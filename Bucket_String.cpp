@@ -14,7 +14,9 @@
 
 //Cannot use linked list!
 namespace BRNDAN022
-{
+{	
+
+
 	int nOfBuckets;
 	int BucketSize;
 	Bucket * firstBuck=NULL;
@@ -40,14 +42,14 @@ namespace BRNDAN022
 	}
 
 	//Return iterator pointing at the first character of the string
-	iterator begin()
+	iterator Bucket_String::begin()
 	{
 		iterator test;
 		std::cout<<test.index;
 		return test;
 	}
 	//return an iterator pointing one location past the last string character
-	iterator end()
+	iterator Bucket_String::end()
 	{
 		//return iterator(charCount,firstBuck);
 	}
