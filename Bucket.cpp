@@ -24,12 +24,12 @@ namespace BRNDAN022
 	//Consturctors
 	Bucket::Bucket(Bucket * daddy, int bucketsize):content(new char[bucketsize]),bucket_size(bucketsize),Head(daddy),child(NULL),count(0)
 	{	
-		std::cout<<"Bucket Constructed"<<std::endl;
+		//std::cout<<"Bucket Constructed"<<std::endl;
 
 	}
 
 	Bucket::Bucket(int bucketsize):content(new char[bucketsize]),bucket_size(bucketsize),Head(NULL),child(NULL),count(0)
-	{	std::cout<<"Bucket Constructed"<<std::endl;
+	{	//std::cout<<"Bucket Constructed"<<std::endl;
 
 	}
 
@@ -42,7 +42,8 @@ namespace BRNDAN022
 		{	++count;
 			content[count-1]=c;
 			
-		}else
+		}
+		else
 		{	//std::cout<<"duck "<<c<<std::endl;
 			if(child==NULL){
 				child = new Bucket(this,bucket_size);

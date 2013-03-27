@@ -34,12 +34,12 @@ int main(int argc, char * argv[])
 	//create a bucket string with bucket size 7
 	Bucket_String test(7);
 	//create a string input stream
-	std::istringstream testString("01234567");
+	std::istringstream testString("0abdcdefg");
 	//test operator overloading by dumping the streams contents into the bucketString
 	testString>>test;
 	//output the contents of the string
-	std::cout<<"output Test"<<test<<std::endl;
-	std::cout<<"OUTPUT TEST"<<test[7]<<std::endl;
+	std::cout<<"output Test "<<test<<std::endl;
+	std::cout<<"OUTPUT TEST "<<test[1]<<std::endl;
 
 
 	// Print command line help to the standard output stream, if required

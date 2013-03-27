@@ -1,10 +1,11 @@
-#ifndef _BUCKET_LINE_H_
-#define _BUCKET_LINE_H_
+#ifndef _BUCKET_STRING_H_
+#define _BUCKET_STRING_H_
 
-#include "Iterator.h"
+//#include "Iterator.h"
 #include "Bucket.h"
 #include <iostream>
 #include "math.h"
+#include "Iterator.h"
 
 namespace BRNDAN022
 {
@@ -15,8 +16,11 @@ namespace BRNDAN022
 
 		friend std::size_t length();
 
+		//friend class Bucket;
+
 		friend std::ostream & operator<<(std::ostream & os, const Bucket_String & bs)
-		{	Bucket * parent = bs.firstBuck;	
+		{
+			Bucket * parent = bs.firstBuck;	
 			Bucket * hasChild = bs.firstBuck->child;
 					while(hasChild)
 					{ 
@@ -46,7 +50,7 @@ namespace BRNDAN022
 				
 			}
 
-			//return is;
+			return is;
 		};
 	//methods
 		//Add a character to the Bucket_String
@@ -55,6 +59,8 @@ namespace BRNDAN022
 		Bucket * firstBuck;
 		int nOfBuckets;
 		int BucketSize;
+		int charCount;
+
 	public:
 		//default constructor
 		Bucket_String(void);
@@ -64,8 +70,6 @@ namespace BRNDAN022
 		iterator begin();
 		//return an iterator pointing one location past the last string character
 		iterator end();
-
-
 
 	//Operator overrides
 		char & operator[] (int index){

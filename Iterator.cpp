@@ -15,4 +15,9 @@ namespace BRNDAN022{
 		iterator::iterator(void)
 		{};
 
+		iterator::iterator(int index_, Bucket * firstBuck)
+		{
+
+		};
+
 }

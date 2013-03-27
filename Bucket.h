@@ -1,7 +1,7 @@
 #ifndef _BUCKET_H_
 #define _BUCKET_H_
 
-#include "Iterator.h"
+//#include "Iterator.h"
 #include <iostream>
 
 namespace BRNDAN022
@@ -23,9 +23,9 @@ namespace BRNDAN022
 		*Methods
 		*/
 			//Return iterator pointing at the first character of the string
-		iterator begin();
+		//iterator begin();
 			//return an iterator pointing one location past the last string character
-		iterator end();
+		//iterator end();
 
 
 		~Bucket()
