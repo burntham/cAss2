@@ -41,18 +41,14 @@ namespace BRNDAN022
 		if (count < (bucket_size))
 		{	++count;
 			content[count-1]=c;
-			
-		}else if(count%bucket_size==0 && child==NULL){
-			child = new Bucket(this,bucket_size);
+			if (count==bucket_size && child==NULL)
+			{
+				child = new Bucket(this,bucket_size);
+			}
 		}
 		else
-		{	//std::cout<<"duck "<<c<<std::endl;
-			if(child==NULL){
-				child = new Bucket(this,bucket_size);
-				child->addChar(c);
-			}else{
-				child->addChar(c);
-			}			
+		{	//std::cout<<"duck "<<c<<std::endl;			
+				child->addChar(c);		
 			
 		}
 		//std::cout<<"tested";

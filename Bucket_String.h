@@ -72,10 +72,12 @@ namespace BRNDAN022
 		iterator end();
 
 	//Operator overrides
-		char & operator[] (int index){
-			int bucketIndex = ceil((double)index/BucketSize);
-			//std::cout<<"bucketIndex is "<<bucketIndex<<std::endl;
-			int contentIndex = index - (BucketSize*bucketIndex);
+char & operator[] (int index){
+			int bucketIndex = (index/BucketSize);
+			std::cout<<"bucketIndex is "<<bucketIndex<<std::endl;
+			int contentIndex = index - (BucketSize*(bucketIndex));
+			std::cout<<"contentIndex is "<<contentIndex<<std::endl;
+
 
 			if (index<BucketSize){
 				char & charRef= firstBuck->content[index];
@@ -90,7 +92,7 @@ namespace BRNDAN022
 				char & charRef= BucketPew->content[contentIndex];
 				return charRef;
 			}
-			
+
 		};
 
 		void replace(iterator first, iterator last, Bucket_String bs);
