@@ -2,6 +2,7 @@
 #define _ITERATOR_H_
 
 #include "Bucket.h"
+#include "Bucket_String.h"
 
 namespace BRNDAN022{
 
@@ -16,7 +17,7 @@ namespace BRNDAN022{
 		public:
 			iterator(void);		
 		
-			iterator(int index_, Bucket * firstBuck);
+			iterator(int index_, Bucket_String * bs);
 			int index;
 			//char *operator ();
 			//prefix

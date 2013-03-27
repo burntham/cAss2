@@ -9,13 +9,16 @@
  */
 
 #include "Iterator.h"
+ //#include "Bucket_String.h"
 
 namespace BRNDAN022{
 
 		iterator::iterator(void)
-		{};
+		{
 
-		iterator::iterator(int index_, Bucket * firstBuck)
+		};
+
+		iterator::iterator(int index_, Bucket_String * bs)
 		{
 
 		};
