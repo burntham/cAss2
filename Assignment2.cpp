@@ -32,11 +32,10 @@ int main(int argc, char * argv[])
 	}	
 
 	Bucket_String test(1);
-	//std::cout<<test;
 	std::istringstream testString("123");
 	testString>>test;
 
-	std::cout<<testString;
+	std::cout<<"OUTPUT TEST"<<test[99];
 
 
 	// Print command line help to the standard output stream, if required

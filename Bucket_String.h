@@ -68,18 +68,25 @@ namespace BRNDAN022
 
 
 	//Operator overrides
-		char & operator [](int index){
+		char & operator[] (int index){
 			int bucketIndex = ceil((double)index/BucketSize);
 			int contentIndex = index - (bucketIndex*BucketSize);
 
 			if (bucketIndex==1){
-				char & charRef= &(*firstBuck->content[contentIndex]);
+				char & charRef= firstBuck->content[contentIndex];
+				return charRef;
 			}
-			for (int i = 0; i < bucketIndex; ++i)
-			{
-				/* code */
+			else{
+					Bucket * BucketPew =firstBuck;	
+				for (int i = 1; i < bucketIndex; ++i)
+				{
+					BucketPew = BucketPew->child;
+				}
+				char & charRef= BucketPew->content[contentIndex];
+				return charRef;
 			}
-		}
+			
+		};
 
 		void replace(iterator first, iterator last, Bucket_String bs);
 
