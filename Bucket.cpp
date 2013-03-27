@@ -42,6 +42,8 @@ namespace BRNDAN022
 		{	++count;
 			content[count-1]=c;
 			
+		}else if(count%bucket_size==0 && child==NULL){
+			child = new Bucket(this,bucket_size);
 		}
 		else
 		{	//std::cout<<"duck "<<c<<std::endl;
