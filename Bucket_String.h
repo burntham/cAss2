@@ -140,19 +140,17 @@ namespace BRNDAN022
 			};
 			
 			//char *operator ();
-			//prefix
+			//prefix WORKING ZOMG
 			iterator & operator++ ()
 			{
-				charPTR=NULL;
 				++index;
 				charPTR = &((*iteratableString)[index]);
-				std::cout<<"and the winner is?:"<<*charPTR<<std::endl;
 				return *this;
 				
 
 			};
 			//postfix
-			/*
+			
 			iterator operator++(int)
 			{
 				iterator temp = *this;
@@ -160,26 +158,12 @@ namespace BRNDAN022
 				return temp;
 			};
 
-			*/
+			
 			//prefix
 			iterator & operator-- ()
 			{
 				--index;
-				int bucketIndex = (int)(index/(iteratableString->BucketSize));
-				int contentIndex = index - ((iteratableString->BucketSize)*(bucketIndex));
-
-				if (index<(iteratableString->BucketSize)){
-					charPTR= &(iteratableString->firstBuck->content[index]);
-					
-				}
-				else{
-						Bucket * BucketPew =iteratableString->firstBuck;	
-					for (int i = 0; i < bucketIndex; ++i)
-					{
-						BucketPew = BucketPew->child;
-					}
-					charPTR= &(BucketPew->content[contentIndex]);
-				}
+				charPTR = &((*iteratableString)[index]);
 				return *this;
 
 			};
