@@ -33,23 +33,31 @@ namespace BRNDAN022
 		//std::cout<<"bucketString constructed"<<BucketSize<<std::endl;
 	};
 
-	//Copy Constructor - needs work
+	//Copy Constructor - working
 	Bucket_String::Bucket_String(const Bucket_String & rhs):nOfBuckets(0), BucketSize(rhs.BucketSize), firstBuck(NULL),charCount(0)
 	{
 		firstBuck = new Bucket(*(rhs.firstBuck));
 
-		Bucket * copyFrom = rhs.firstBuck->child;
-		Bucket * copyTo = (firstBuck->child);
+		if (rhs.firstBuck->child !=NULL)
+		{	
+			Bucket * copyFrom = rhs.firstBuck->child;
+			Bucket * copyTo = firstBuck;
+			copyTo->child = new Bucket(*(rhs.firstBuck->child));
+			
 
-		while (copyFrom!=NULL)
-		{
-			copyTo = new Bucket(*copyFrom);
-			copyFrom = copyFrom->child;
-			copyTo = copyTo->child;
-			if (copyFrom->child==NULL){
-				break;
+
+			while (copyFrom->child!=NULL)
+			{
+				copyFrom = copyFrom->child;
+				copyTo = copyTo->child;
+				copyTo->child = new Bucket(*copyFrom);
+				//this was needed before to make sure it didn't go too far
+				if (copyFrom->child==NULL){
+					break;
+				}
 			}
 		}
+		
 
 	}
 

@@ -34,8 +34,9 @@ int main(int argc, char * argv[])
 		{ parser.print_help(std::cout);	}
 
 	//Instantiate the string thing
-	
 	Bucket_String myBuckets(7);
+	//Show Copy Constructor is working
+
 
 	std::string sFileName = parser.get_string_filename();
 	char * filename = (char*)sFileName.c_str();
@@ -44,7 +45,9 @@ int main(int argc, char * argv[])
 	std::getline(stringFile, input);
 	std::istringstream actualString(input);
 	actualString>>myBuckets;
-	std::cout<<myBuckets<<std::endl;
+
+	Bucket_String Bucket1(myBuckets);
+	std::cout<<Bucket1<<std::endl;
 
 
 //end of code from assignment 1

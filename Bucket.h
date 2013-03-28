@@ -21,7 +21,6 @@ namespace BRNDAN022
 		//copyconStructor
 		Bucket(const Bucket & rhs);
 		//copy assignment operator
-		Bucket & operator=(const Bucket & rhs);
 
 		std::ostream & outAll(std::ostream & os);
 		/*
