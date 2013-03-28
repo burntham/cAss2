@@ -110,15 +110,32 @@ char & operator[] (int index){
 		private:
 			//default constructor (must be private)
 			iterator(int index_,Bucket_String * bs);
+			iterator(void);	
+			//Copy Constructors
+
 			char * charPTR;
 			int index;
 			
 		public:
-			iterator(void);	
+			
+			//copy constructor
+			iterator(const iterator & rhs);
+			//copy assignment operator
+			iterator & operator=(const iterator & rhs){
+				if(this != &rhs) 
+				{ 
+					index = rhs.index;
+					charPTR = rhs.charPTR;
+				}
+				return *this; // Return a reference to the existing object!
+			};
 			
 			//char *operator ();
 			//prefix
-			iterator & operator++ ();
+			iterator & operator++ ()
+			{
+
+			};
 			//postfix
 			iterator operator++(int);
 
@@ -133,6 +150,9 @@ char & operator[] (int index){
 				return character;
 			};
 			
+		~iterator(){
+			delete charPTR;
+		}
 
 	};
 

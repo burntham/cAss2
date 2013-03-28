@@ -52,17 +52,17 @@ namespace BRNDAN022
 		//return iterator(charCount,firstBuck);
 	}
 	
-	/////////Iterator class:::
+///////////////Iterator class//////////////////////////////////////////////:::
 
-	char * charPTR=NULL;
+	char * charPTR;
 
-	iterator::iterator(void)
+	iterator::iterator(void):charPTR(NULL),index(0)
 	{
 
 	};
 
-	iterator::iterator(int index,Bucket_String * bs):charPTR(NULL)
-	{
+	iterator::iterator(int index_,Bucket_String * bs):charPTR(NULL),index(0)
+	{		index=index_;
 			int bucketIndex = (int)(index/(bs->BucketSize));
 			int contentIndex = index - ((bs->BucketSize)*(bucketIndex));
 
@@ -80,5 +80,12 @@ namespace BRNDAN022
 			}
 			//std::cout<<*charPTR<<std::endl;
 	};
+
+	iterator::iterator(const iterator & rhs):charPTR(rhs.charPTR), index(rhs.index)
+	{//std::cout<<"something is actually running this? - (Iterator copy constructor)"<<std::endl;
+
+	};
+
+
 	
 }

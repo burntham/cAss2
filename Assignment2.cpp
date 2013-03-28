@@ -39,6 +39,7 @@ int main(int argc, char * argv[])
 	testString>>test;
 	//output the contents of the string
 	iterator t = test.begin();
+	
 	std::cout<<"output Test "<<test<<std::endl;
 	std::cout<<"OUTPUT TEST "<<test[7]<<std::endl;
 	std::cout<<"dereferencer thingy test "<<*t;

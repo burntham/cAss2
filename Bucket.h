@@ -22,12 +22,6 @@ namespace BRNDAN022
 		/*
 		*Methods
 		*/
-			//Return iterator pointing at the first character of the string
-		//iterator begin();
-			//return an iterator pointing one location past the last string character
-		//iterator end();
-
-
 		~Bucket()
 		{
 			delete [] content;
