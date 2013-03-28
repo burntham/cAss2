@@ -21,8 +21,8 @@ cmdline_parser::cmdline_parser(void) : vm(), od("Options")
 	// --database-file or -d, with a default value of "dbfile.txt"
 	od.add_options()
 		("help,?", "produce help message")
-		("database-file,d", po::value<std::string>()->default_value("dbfile.txt"),
-			"database file name");
+		("String-File,d", po::value<std::string>()->default_value("stringFile.txt"),
+			"String File Name");
 };
 
 //-------------------------------------------------------------------------//
@@ -49,10 +49,10 @@ bool cmdline_parser::process_cmdline(int argc, char * argv[])
 //-----------------------------------------------------------------------//
 // Return the database filename
 //-------------------------------------------------------------------------//
-std::string cmdline_parser::get_database_filename(void) const
+std::string cmdline_parser::get_string_filename(void) const
 {
 	// Return whatever value is stored in database-file as a string
-	return vm["database-file"].as<std::string>();
+	return vm["String-File"].as<std::string>();
 }
 
 //-----------------------------------------------------------------------//

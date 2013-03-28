@@ -12,6 +12,7 @@
 #include "cmdline_parser.h"
 #include "Bucket_String.h"
 #include <sstream>
+#include <fstream>
 
 
 int main(int argc, char * argv[])
@@ -28,30 +29,24 @@ int main(int argc, char * argv[])
 		std::cerr << "Couldn't process command line arguments" << std::endl;
 		return 1;
 	}	
-/*
-*	testing
-*/
-	//create a bucket string with bucket size 7
-	Bucket_String test(7);
-	//create a string input stream
-	std::istringstream testString("012345678abcde");
-	//test operator overloading by dumping the streams contents into the bucketString
-	testString>>test;
 
-	//output the contents of the string
-	iterator t = test.begin();
-	iterator tend = test.end();
-	std::cout<<"output Test "<<test<<std::endl;
-	std::cout<<"OUTPUT TEST "<<test[0]<<std::endl;
-	std::cout<<"dereferencer thingy test "<<*tend<<std::endl;
+	//Print command line help to the standard output stream, if required
+	if(parser.should_print_help())
+		{ parser.print_help(std::cout);	}
 
+	//Instantiate the string thing
+	
+	Bucket_String myBuckets(7);
 
-	// Print command line help to the standard output stream, if required
-	//if(parser.should_print_help())
-	//	{ parser.print_help(std::cout);	}
+	std::string sFileName = parser.get_string_filename();
+	char * filename = (char*)sFileName.c_str();
+	std::fstream stringFile(filename);
+	std::string input;
+	std::getline(stringFile, input);
+	std::istringstream actualString(input);
+	actualString>>myBuckets;
+	std::cout<<myBuckets<<std::endl;
 
-	//Instantiate the database:
-	//std::string dbFileNamep = parser.get_database_filename();
 
 //end of code from assignment 1
 

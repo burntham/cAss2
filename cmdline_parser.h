@@ -24,7 +24,7 @@ public:
 	// Member function that parses command line options
 	bool process_cmdline(int argc, char * argv[]);
 	// Getter for the db filename cmdline option
-	std::string get_database_filename(void) const;
+	std::string get_string_filename(void) const;
 	// Member indicating whether cmdline help should be printed
 	bool should_print_help(void) const;
 	// Output help to the specified output stream

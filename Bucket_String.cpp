@@ -33,7 +33,7 @@ namespace BRNDAN022
 		//std::cout<<"bucketString constructed"<<BucketSize<<std::endl;
 	};
 
-	//Copy Constructor
+	//Copy Constructor - needs work
 	Bucket_String::Bucket_String(const Bucket_String & rhs):nOfBuckets(0), BucketSize(rhs.BucketSize), firstBuck(NULL),charCount(0)
 	{
 		firstBuck = new Bucket(*(rhs.firstBuck));
@@ -77,14 +77,20 @@ namespace BRNDAN022
 	void Bucket_String::destroyAll(){
 		firstBuck->destroyAll();
 	}
+
+///Not sure how to do this:
+	void Bucket_String::insert(iterator first, Bucket_String bs)
+	{
+
+	};
 	
 ///////////////Iterator class//////////////////////////////////////////////:::
 
 	char * charPTR;
 
+	//default constructor
 	iterator::iterator(void):charPTR(NULL),index(0),iteratableString(NULL)
 	{
-
 	};
 
 	iterator::iterator(int index_,Bucket_String * bs):charPTR(NULL),index(0),iteratableString(NULL)
@@ -110,11 +116,10 @@ namespace BRNDAN022
 			//std::cout<<*charPTR<<std::endl;
 	};
 
+	//Copy Constructor
 	iterator::iterator(const iterator & rhs):charPTR(rhs.charPTR), index(rhs.index)
-	{//std::cout<<"something is actually running this? - (Iterator copy constructor)"<<std::endl;
-
+	{
 	};
-
 
 	
 }

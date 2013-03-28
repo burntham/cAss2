@@ -15,8 +15,6 @@ namespace BRNDAN022
 	private: 
 		friend class iterator;
 
-		friend std::size_t length();
-
 		//friend class Bucket;
 
 		friend std::ostream & operator<<(std::ostream & os, const Bucket_String & bs)
@@ -63,6 +61,11 @@ namespace BRNDAN022
 		int charCount;
 
 	public:
+
+		std::size_t length(){
+			return (std::size_t)charCount;
+		};
+
 		//default constructor
 		Bucket_String(void);
 		//constructed with specified size;
@@ -76,6 +79,9 @@ namespace BRNDAN022
 		//return an iterator pointing one location past the last string character
 		iterator end();
 
+		void insert(iterator first, Bucket_String bs);
+
+		//Destructor
 		~Bucket_String()
 		{
 			destroyAll();
@@ -110,8 +116,6 @@ namespace BRNDAN022
 				};
 
 		void replace(iterator first, iterator last, Bucket_String bs);
-
-		void insert(iterator first, Bucket_String bs);
 
 		Bucket_String substr(iterator first, iterator last);
 	};
@@ -179,6 +183,18 @@ namespace BRNDAN022
 			 char operator*(void){
 				 char  character  = *charPTR;
 				return character;
+			};
+
+			inline iterator operator+(const int rhs)
+			{
+				iterator * temp = new iterator((index+rhs),iteratableString);
+				return *temp;
+			};
+
+			inline iterator operator-(const int rhs)
+			{
+				iterator * temp = new iterator((index-rhs),iteratableString);
+				return *temp;
 			};
 			
 		~iterator(){
