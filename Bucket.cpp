@@ -17,7 +17,6 @@ namespace BRNDAN022
 	Bucket * child;
 	//char array holding this buckets segment of the string
 	char* content;
-
 	int bucket_size;
 	int count;
 
@@ -30,6 +29,15 @@ namespace BRNDAN022
 
 	Bucket::Bucket(int bucketsize):content(new char[bucketsize]),bucket_size(bucketsize),Head(NULL),child(NULL),count(0)
 	{	//std::cout<<"Bucket Constructed"<<std::endl;
+
+	}
+
+	Bucket::Bucket(const Bucket & rhs):content(new char(rhs.bucket_size)),bucket_size(rhs.bucket_size),count(rhs.count),Head(NULL),child(NULL)
+	{	
+		for (int i = 0; i < count; ++i)
+		{
+			content[i] = rhs.content[i];
+		}
 
 	}
 
@@ -62,4 +70,16 @@ namespace BRNDAN022
 		}
 		return os;
 	}
+
+	//used to delete the entire chain of buckets stored in a bucket_String
+	void Bucket::destroyAll()
+	{
+		// if the child is not null, traverse down the chain and delete from bottom up
+		if (child!=NULL)
+		{
+			child->destroyAll();
+		}
+		delete child;
+	}
+
 }

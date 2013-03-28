@@ -18,6 +18,11 @@ namespace BRNDAN022
 		//Construct a Bucket which is being added to the end of a list
 		Bucket(Bucket * Daddy, int bucketsize);
 		Bucket(int bucketsize);
+		//copyconStructor
+		Bucket(const Bucket & rhs);
+		//copy assignment operator
+		Bucket & operator=(const Bucket & rhs);
+
 		std::ostream & outAll(std::ostream & os);
 		/*
 		*Methods
@@ -26,6 +31,10 @@ namespace BRNDAN022
 		{
 			delete [] content;
 		}
+
+		//used to delete the entire chain of buckets stored in a bucket_String
+		void destroyAll();
+
 
 	private:
 		friend class iterator;

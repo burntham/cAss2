@@ -18,11 +18,11 @@ namespace BRNDAN022
 
 	int nOfBuckets;
 	int BucketSize;
-	Bucket * firstBuck=NULL;
+	Bucket * firstBuck;
 	int charCount;
 
 	//Default constructor - not currently used for anything...
-	Bucket_String::Bucket_String(void)
+	Bucket_String::Bucket_String(void):firstBuck(NULL),nOfBuckets(0),BucketSize(0),charCount(0)
 	{
 
 	};
@@ -32,6 +32,26 @@ namespace BRNDAN022
 	{
 		//std::cout<<"bucketString constructed"<<BucketSize<<std::endl;
 	};
+
+	//Copy Constructor
+	Bucket_String::Bucket_String(const Bucket_String & rhs):nOfBuckets(0), BucketSize(rhs.BucketSize), firstBuck(NULL),charCount(0)
+	{
+		firstBuck = new Bucket(*(rhs.firstBuck));
+
+		Bucket * copyFrom = rhs.firstBuck->child;
+		Bucket * copyTo = (firstBuck->child);
+
+		while (copyFrom!=NULL)
+		{
+			copyTo = new Bucket(*copyFrom);
+			copyFrom = copyFrom->child;
+			copyTo = copyTo->child;
+			if (copyFrom->child==NULL){
+				break;
+			}
+		}
+
+	}
 
 	//Called by the >> operator! - adds new characters to the end of the buckets (or creating new ones if they are full)
 	void Bucket_String::addChar(char c)
@@ -51,27 +71,35 @@ namespace BRNDAN022
 	{
 		//return iterator(charCount,firstBuck);
 	}
+
+	void Bucket_String::destroyAll(){
+		firstBuck->destroyAll();
+	}
 	
 ///////////////Iterator class//////////////////////////////////////////////:::
 
 	char * charPTR;
 
-	iterator::iterator(void):charPTR(NULL),index(0)
+	iterator::iterator(void):charPTR(NULL),index(0),iteratableString(NULL)
 	{
 
 	};
 
-	iterator::iterator(int index_,Bucket_String * bs):charPTR(NULL),index(0)
-	{		index=index_;
-			int bucketIndex = (int)(index/(bs->BucketSize));
-			int contentIndex = index - ((bs->BucketSize)*(bucketIndex));
+	iterator::iterator(int index_,Bucket_String * bs):charPTR(NULL),index(0),iteratableString(NULL)
+	{		
+		iteratableString = bs;
+		std::cout<<bs[0]<<"tested "<<std::endl;
+
+			index=index_;
+			int bucketIndex = (int)(index/(iteratableString->BucketSize));
+			int contentIndex = index - ((iteratableString->BucketSize)*(bucketIndex));
 
 			if (index<(bs->BucketSize)){
-				charPTR= &(bs->firstBuck->content[index]);
+				charPTR= &(iteratableString->firstBuck->content[index]);
 				//std::cout<<"what should be there?"<<bs->firstBuck->content[index]<<std::endl;
 			}
 			else{
-					Bucket * BucketPew =bs->firstBuck;	
+					Bucket * BucketPew =iteratableString->firstBuck;	
 				for (int i = 0; i < bucketIndex; ++i)
 				{
 					BucketPew = BucketPew->child;

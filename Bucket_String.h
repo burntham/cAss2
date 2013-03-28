@@ -67,10 +67,21 @@ namespace BRNDAN022
 		Bucket_String(void);
 		//constructed with specified size;
 		Bucket_String(int bucketSize_);
+
+		//Copy Constructor
+		Bucket_String(const Bucket_String & rhs);
+
 		//Return iterator pointing at the first character of the string
 		iterator begin();
 		//return an iterator pointing one location past the last string character
 		iterator end();
+
+		~Bucket_String()
+		{
+			destroyAll();
+		}
+
+		void destroyAll();
 
 	//Operator overrides
 char & operator[] (int index){
@@ -81,6 +92,7 @@ char & operator[] (int index){
 
 
 			if (index<BucketSize){
+
 				char & charRef= firstBuck->content[index];
 				return charRef;
 			}
@@ -111,7 +123,8 @@ char & operator[] (int index){
 			//default constructor (must be private)
 			iterator(int index_,Bucket_String * bs);
 			iterator(void);	
-			//Copy Constructors
+			Bucket_String * iteratableString;
+			
 
 			char * charPTR;
 			int index;
@@ -121,12 +134,7 @@ char & operator[] (int index){
 			//copy constructor
 			iterator(const iterator & rhs);
 			//copy assignment operator
-			iterator & operator=(const iterator & rhs){
-				if(this != &rhs) 
-				{ 
-					index = rhs.index;
-					charPTR = rhs.charPTR;
-				}
+			iterator & operator=( iterator & rhs){
 				return *this; // Return a reference to the existing object!
 			};
 			
@@ -134,15 +142,49 @@ char & operator[] (int index){
 			//prefix
 			iterator & operator++ ()
 			{
+				//++index;
+				//std::cout<<"Another silly test"<<iteratableString[2];
 
 			};
 			//postfix
-			iterator operator++(int);
+			iterator operator++(int)
+			{
+				iterator temp = *this;
+				++(*this);
+				return temp;
+			};
+
 
 			//prefix
-			iterator & operator-- ();
+			iterator & operator-- ()
+			{
+				--index;
+				int bucketIndex = (int)(index/(iteratableString->BucketSize));
+				int contentIndex = index - ((iteratableString->BucketSize)*(bucketIndex));
+
+				if (index<(iteratableString->BucketSize)){
+					charPTR= &(iteratableString->firstBuck->content[index]);
+					
+				}
+				else{
+						Bucket * BucketPew =iteratableString->firstBuck;	
+					for (int i = 0; i < bucketIndex; ++i)
+					{
+						BucketPew = BucketPew->child;
+					}
+					charPTR= &(BucketPew->content[contentIndex]);
+				}
+				return *this;
+
+			};
+
 			//postfix
-			iterator operator--(int);
+			iterator operator--(int)
+			{
+				iterator temp = *this;
+				--(*this);
+				return temp;
+			};
 
 			//*prt (dereference pointer)
 			 char operator*(void){
