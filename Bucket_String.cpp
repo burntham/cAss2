@@ -69,7 +69,9 @@ namespace BRNDAN022
 	//return an iterator pointing one location past the last string character
 	iterator Bucket_String::end()
 	{
-		//return iterator(charCount,firstBuck);
+		//Create an iterator which points to the next address in memory (after the last character)
+		iterator test(charCount, this);
+		return test;
 	}
 
 	void Bucket_String::destroyAll(){
