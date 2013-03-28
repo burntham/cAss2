@@ -36,8 +36,10 @@ namespace BRNDAN022
 	//Copy Constructor - working
 	Bucket_String::Bucket_String(const Bucket_String & rhs):nOfBuckets(0), BucketSize(rhs.BucketSize), firstBuck(NULL),charCount(0)
 	{
+		//Copy the first Bucket
 		firstBuck = new Bucket(*(rhs.firstBuck));
 
+		//Copy the rest down the chain!
 		if (rhs.firstBuck->child !=NULL)
 		{	
 			Bucket * copyFrom = rhs.firstBuck->child;

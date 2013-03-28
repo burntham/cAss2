@@ -46,7 +46,10 @@ int main(int argc, char * argv[])
 	std::istringstream actualString(input);
 	actualString>>myBuckets;
 
+
 	Bucket_String Bucket1(myBuckets);
+	myBuckets[5]='!';
+	std::cout<<myBuckets<<std::endl;
 	std::cout<<Bucket1<<std::endl;
 
 
