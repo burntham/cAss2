@@ -63,9 +63,41 @@ namespace BRNDAN022
 	}
 
 	Bucket_String & Bucket_String::substr(iterator first, iterator last)
-	{	iterator t((iterator)first);
-		std::cout<<*t++<<std::endl;
-		std::cout<<*t<<std::endl;
+	{	
+		Bucket_String * bs = new Bucket_String(this->BucketSize);
+		
+		for (int i = 0; (first+i) != last; ++i)
+		{	
+			bs->addChar(*(first+i));	
+		}
+
+		return *bs;
+	};
+
+	//insert Bucket String at position first
+	//create a temp string
+	void Bucket_String::insert(iterator first, Bucket_String bs)
+	{
+		Bucket_String * newBS = new Bucket_String(this->BucketSize);
+		iterator itBeg(this->begin());
+		std::cout<<"wah? "<<*(itBeg+1)<<std::endl;
+		for (int i = 0; (itBeg+i) != this->end(); ++i)
+		{ std::cout<<"is something happening?"<<std::endl;
+			if ((itBeg+i)==first){
+				iterator bsIt = bs.begin();
+				for (int j = 0; (bsIt+j)!=bs.end(); ++j)
+				{
+					newBS->addChar(*(bsIt+j));
+				}
+			}
+			newBS->addChar(*(itBeg+1));
+		}
+		destroyAll();
+		std::cout<<*newBS;
+		*this = *newBS;
+
+
+
 	};
 
 	//Called by the >> operator! - adds new characters to the end of the buckets (or creating new ones if they are full)
@@ -83,8 +115,7 @@ namespace BRNDAN022
 	}
 	//return an iterator pointing one location past the last string character
 	iterator Bucket_String::end()
-	{
-		//Create an iterator which points to the next address in memory (after the last character)
+	{	//Create an iterator which points to the next address in memory (after the last character)
 		iterator test(charCount, this);
 		return test;
 	}
@@ -93,8 +124,6 @@ namespace BRNDAN022
 		firstBuck->destroyAll();
 	}
 
-
-	
 ///////////////Iterator class//////////////////////////////////////////////:::
 
 	char * charPTR;
@@ -129,9 +158,7 @@ namespace BRNDAN022
 
 	//Copy Constructor
 	iterator::iterator(const iterator & rhs):charPTR(rhs.charPTR), index(rhs.index), iteratableString(rhs.iteratableString)
-	{
-
-	};
+	{};
 
 	
 }
