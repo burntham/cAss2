@@ -22,7 +22,7 @@ namespace BRNDAN022
 	int charCount;
 
 	//Default constructor - not currently used for anything...
-	Bucket_String::Bucket_String(void):firstBuck(NULL),nOfBuckets(0),BucketSize(0),charCount(0)
+	Bucket_String::Bucket_String(void):firstBuck(NULL),nOfBuckets(0),BucketSize(7),charCount(0)
 	{
 
 	};
@@ -58,10 +58,13 @@ namespace BRNDAN022
 					break;
 				}
 			}
-		}
-		
+		}	
 
 	}
+
+	Bucket_String & Bucket_String::substr(iterator first, iterator last)
+	{
+	};
 
 	//Called by the >> operator! - adds new characters to the end of the buckets (or creating new ones if they are full)
 	void Bucket_String::addChar(char c)
@@ -88,11 +91,7 @@ namespace BRNDAN022
 		firstBuck->destroyAll();
 	}
 
-///Not sure how to do this:
-	void Bucket_String::insert(iterator first, Bucket_String bs)
-	{
 
-	};
 	
 ///////////////Iterator class//////////////////////////////////////////////:::
 
@@ -129,6 +128,7 @@ namespace BRNDAN022
 	//Copy Constructor
 	iterator::iterator(const iterator & rhs):charPTR(rhs.charPTR), index(rhs.index)
 	{
+
 	};
 
 	

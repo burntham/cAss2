@@ -50,8 +50,7 @@ namespace BRNDAN022
 			return is;
 		};
 	//methods
-		//Add a character to the Bucket_String
-		void addChar(char c);
+
 	//Variables/etc
 		Bucket * firstBuck;
 		int nOfBuckets;
@@ -59,6 +58,9 @@ namespace BRNDAN022
 		int charCount;
 
 	public:
+
+		//Add a character to the Bucket_String
+		void addChar(char c);
 
 		std::size_t length(){
 			return (std::size_t)charCount;
@@ -78,6 +80,12 @@ namespace BRNDAN022
 		iterator end();
 
 		void insert(iterator first, Bucket_String bs);
+
+		void replace(iterator first, iterator second, Bucket_String bs);
+
+		Bucket_String & substr(iterator first,iterator last);
+
+
 
 		//Destructor
 		~Bucket_String()
@@ -113,10 +121,9 @@ namespace BRNDAN022
 
 				};
 
-		void replace(iterator first, iterator last, Bucket_String bs);
-
-		Bucket_String substr(iterator first, iterator last);
+		
 	};
+
 
 	class iterator{
 			friend class Bucket_String;
@@ -194,6 +201,22 @@ namespace BRNDAN022
 				iterator * temp = new iterator((index-rhs),iteratableString);
 				return *temp;
 			};
+
+			inline bool operator==(const iterator& rhs)
+			{ //std::cout<<"is this working? "<<std::endl;
+				if (charPTR==rhs.charPTR){
+					return true;
+				}else{
+					//std::cout<<"this isn't working"<<std::endl;
+					return false;
+				}
+				
+			};
+
+			inline bool operator!=(const iterator& rhs)
+			{
+				return (!(*this==rhs));
+			}
 			
 		~iterator(){
 			//delete charPTR;

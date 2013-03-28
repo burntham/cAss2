@@ -37,24 +37,34 @@ int main(int argc, char * argv[])
 	Bucket_String myBuckets(7);
 	//Show Copy Constructor is working
 
-
+///File input::::
 	std::string sFileName = parser.get_string_filename();
 	char * filename = (char*)sFileName.c_str();
 	std::fstream stringFile(filename);
 	std::string input;
 	std::getline(stringFile, input);
 	std::istringstream actualString(input);
+////End of File input
+//Pass string stored in file to a bucket string
 	actualString>>myBuckets;
+//etc
+	Bucket_String Bucket1 = myBuckets;
 
+	iterator buck= myBuckets.begin();
+	iterator buckend= myBuckets.end();
 
-	Bucket_String Bucket1(myBuckets);
-	myBuckets[5]='!';
+	Bucket_String test1(7);
+
+	std::cout<<"it's getting far?"<<std::endl;
+	myBuckets.substr(buck, buckend);
+
 	std::cout<<myBuckets<<std::endl;
 	std::cout<<Bucket1<<std::endl;
 
+	if ((buck+(myBuckets.length()))!=buckend){
+		std::cout<<"this is another test"<<std::endl;
+	}
 
 //end of code from assignment 1
-
 	return 0;
-
 }
