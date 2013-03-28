@@ -34,7 +34,7 @@ namespace BRNDAN022
 	};
 
 	//Copy Constructor - working
-	Bucket_String::Bucket_String(const Bucket_String & rhs):nOfBuckets(0), BucketSize(rhs.BucketSize), firstBuck(NULL),charCount(0)
+	Bucket_String::Bucket_String(const Bucket_String & rhs):nOfBuckets(0), BucketSize(rhs.BucketSize), firstBuck(NULL),charCount(rhs.charCount)
 	{
 		//Copy the first Bucket
 		firstBuck = new Bucket(*(rhs.firstBuck));
@@ -80,20 +80,21 @@ namespace BRNDAN022
 	{
 		Bucket_String * newBS = new Bucket_String(this->BucketSize);
 		iterator itBeg(this->begin());
-		std::cout<<"wah? "<<*(itBeg+1)<<std::endl;
+		std::cout<<"wah? "<<*(this->end())<<std::endl;
+
 		for (int i = 0; (itBeg+i) != this->end(); ++i)
-		{ std::cout<<"is something happening?"<<std::endl;
+		{ //std::cout<<"is something happening?"<<std::endl;
 			if ((itBeg+i)==first){
+				std::cout<<"this should only happen once! "<<std::endl;
 				iterator bsIt = bs.begin();
 				for (int j = 0; (bsIt+j)!=bs.end(); ++j)
 				{
 					newBS->addChar(*(bsIt+j));
 				}
 			}
-			newBS->addChar(*(itBeg+1));
+			newBS->addChar(*(itBeg+i));
 		}
 		destroyAll();
-		std::cout<<*newBS;
 		*this = *newBS;
 
 

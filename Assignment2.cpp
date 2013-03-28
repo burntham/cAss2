@@ -58,15 +58,11 @@ int main(int argc, char * argv[])
 	std::cout<<"it's getting far?"<<std::endl;
 	///test1=new Bucket_String(myBuckets);//.substr(buck+5, buckend-10);
 	Bucket_String test1(myBuckets);
-	test1.insert(test1.begin(),myBuckets);
+	test1.insert((test1.begin()+2),myBuckets);
 
 	std::cout<<test1<<std::endl;
-	std::cout<<myBuckets<<std::endl;
-	std::cout<<Bucket1<<std::endl;
-
-	if ((buck+(myBuckets.length()))!=buckend){
-		std::cout<<"this is another test"<<std::endl;
-	}
+	//std::cout<<myBuckets<<std::endl;
+	//std::cout<<Bucket1<<std::endl;
 
 //end of code from assignment 1
 	return 0;
