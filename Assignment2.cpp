@@ -53,12 +53,8 @@ int main(int argc, char * argv[])
 	iterator buck= myBuckets.begin();
 	iterator buckend= myBuckets.end();
 
-	
-
-	std::cout<<"it's getting far?"<<std::endl;
-	///test1=new Bucket_String(myBuckets);//.substr(buck+5, buckend-10);
 	Bucket_String test1(myBuckets);
-	test1.insert((test1.begin()+2),myBuckets);
+	test1.replace((test1.begin()+3),(test1.begin()+40),myBuckets);
 
 	std::cout<<test1<<std::endl;
 	//std::cout<<myBuckets<<std::endl;

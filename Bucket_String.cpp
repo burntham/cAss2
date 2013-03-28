@@ -78,14 +78,12 @@ namespace BRNDAN022
 	//create a temp string
 	void Bucket_String::insert(iterator first, Bucket_String bs)
 	{
+		//create a new bucket string (that this will become)
 		Bucket_String * newBS = new Bucket_String(this->BucketSize);
 		iterator itBeg(this->begin());
-		std::cout<<"wah? "<<*(this->end())<<std::endl;
-
 		for (int i = 0; (itBeg+i) != this->end(); ++i)
-		{ //std::cout<<"is something happening?"<<std::endl;
+		{
 			if ((itBeg+i)==first){
-				std::cout<<"this should only happen once! "<<std::endl;
 				iterator bsIt = bs.begin();
 				for (int j = 0; (bsIt+j)!=bs.end(); ++j)
 				{
@@ -94,12 +92,20 @@ namespace BRNDAN022
 			}
 			newBS->addChar(*(itBeg+i));
 		}
+		//Delete contents of old stuffs
 		destroyAll();
 		*this = *newBS;
-
-
-
 	};
+
+	//replace all characters in the given range with that from bs - note it will not add mroe than the range (and will not go over if bs has less characters then the range)
+	void Bucket_String::replace(iterator first, iterator second, Bucket_String bs)
+	{
+		for (int i = 0; ((first+i)!=second && i<bs.charCount); ++i)
+		{	//change each char
+			//std::cout<<(*this)[0];
+			(*this)[(first+i).index] = bs[i];
+		}
+	}
 
 	//Called by the >> operator! - adds new characters to the end of the buckets (or creating new ones if they are full)
 	void Bucket_String::addChar(char c)

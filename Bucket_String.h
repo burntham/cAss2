@@ -186,8 +186,8 @@ namespace BRNDAN022
 
 			//*prt (dereference pointer)
 			 char operator*(void){
-				 char  character  = *charPTR;
-				return character;
+				 //char  character  = 
+				return *charPTR;
 			};
 
 			inline iterator operator+(const int rhs)

@@ -10,7 +10,7 @@ All: $(OBJECTS)
 	$(CC) $(OBJECTS) -o $(TARGET) $(LIBRARIES) 
 
 run: All
-	./$(TARGET) $(RUNNINGARGS)
+	clear;./$(TARGET) $(RUNNINGARGS) 
 
 Assignment2.o: Assignment2.cpp cmdline_parser.o Bucket_String.o
 	$(CC) $(FLAGS) Assignment2.cpp 
