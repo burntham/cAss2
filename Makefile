@@ -1,4 +1,4 @@
-CC=g++
+CC=gcc
 FLAGS = -c
 OBJECTS = Assignment2.o cmdline_parser.o Bucket_String.o Bucket.o
 LIBRARIES = -lboost_program_options

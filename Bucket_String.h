@@ -83,30 +83,31 @@ namespace BRNDAN022
 
 		void destroyAll();
 
-	//Operator overrides
-char & operator[] (int index){
-			int bucketIndex = (index/BucketSize);
-			std::cout<<"bucketIndex is "<<bucketIndex-1<<std::endl;
-			int contentIndex = index - (BucketSize*(bucketIndex));
-			std::cout<<"contentIndex is "<<contentIndex-1<<std::endl;
+			//Operator overrides
+		char & operator[] (int index){
+			//char * charRef = NULL;
+					int bucketIndex = (index/BucketSize);
+					//std::cout<<"bucketIndex is "<<bucketIndex-1<<std::endl;
+					int contentIndex = index - (BucketSize*(bucketIndex));
+					//std::cout<<"contentIndex is "<<contentIndex-1<<std::endl;
 
 
-			if (index<BucketSize){
+					if (index<BucketSize){
 
-				char & charRef= firstBuck->content[index];
-				return charRef;
-			}
-			else{
-					Bucket * BucketPew =firstBuck;	
-				for (int i = 0; i < bucketIndex; ++i)
-				{
-					BucketPew = BucketPew->child;
-				}
-				char & charRef= BucketPew->content[contentIndex];
-				return charRef;
-			}
+						char * charRef= (char*)(&firstBuck->content[index]);
+						return *charRef;
+					}
+					else{
+							Bucket * BucketPew =firstBuck;	
+						for (int i = 0; i < bucketIndex; ++i)
+						{
+							BucketPew = BucketPew->child;
+						}
+						char * charRef= (char*)(&BucketPew->content[contentIndex]);
+						return *charRef;
+					}
 
-		};
+				};
 
 		void replace(iterator first, iterator last, Bucket_String bs);
 
@@ -142,11 +143,16 @@ char & operator[] (int index){
 			//prefix
 			iterator & operator++ ()
 			{
-				//++index;
-				//std::cout<<"Another silly test"<<iteratableString[2];
+				charPTR=NULL;
+				++index;
+				charPTR = &((*iteratableString)[index]);
+				std::cout<<"and the winner is?:"<<*charPTR<<std::endl;
+				return *this;
+				
 
 			};
 			//postfix
+			/*
 			iterator operator++(int)
 			{
 				iterator temp = *this;
@@ -154,7 +160,7 @@ char & operator[] (int index){
 				return temp;
 			};
 
-
+			*/
 			//prefix
 			iterator & operator-- ()
 			{
@@ -193,7 +199,7 @@ char & operator[] (int index){
 			};
 			
 		~iterator(){
-			delete charPTR;
+			//delete charPTR;
 		}
 
 	};

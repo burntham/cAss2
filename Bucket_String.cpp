@@ -63,7 +63,7 @@ namespace BRNDAN022
 	//Return iterator pointing at the first character of the string
 	iterator Bucket_String::begin()
 	{
-		iterator test(7, this);
+		iterator test(0, this);
 		return test;
 	}
 	//return an iterator pointing one location past the last string character
@@ -88,8 +88,7 @@ namespace BRNDAN022
 	iterator::iterator(int index_,Bucket_String * bs):charPTR(NULL),index(0),iteratableString(NULL)
 	{		
 		iteratableString = bs;
-		std::cout<<bs[0]<<"tested "<<std::endl;
-
+		//std::cout<<(*bs)[5]<<"WHAT IS GOING ON!";
 			index=index_;
 			int bucketIndex = (int)(index/(iteratableString->BucketSize));
 			int contentIndex = index - ((iteratableString->BucketSize)*(bucketIndex));
