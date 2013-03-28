@@ -63,7 +63,9 @@ namespace BRNDAN022
 	}
 
 	Bucket_String & Bucket_String::substr(iterator first, iterator last)
-	{
+	{	iterator t((iterator)first);
+		std::cout<<*t++<<std::endl;
+		std::cout<<*t<<std::endl;
 	};
 
 	//Called by the >> operator! - adds new characters to the end of the buckets (or creating new ones if they are full)
@@ -126,7 +128,7 @@ namespace BRNDAN022
 	};
 
 	//Copy Constructor
-	iterator::iterator(const iterator & rhs):charPTR(rhs.charPTR), index(rhs.index)
+	iterator::iterator(const iterator & rhs):charPTR(rhs.charPTR), index(rhs.index), iteratableString(rhs.iteratableString)
 	{
 
 	};
