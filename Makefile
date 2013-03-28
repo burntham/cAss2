@@ -3,14 +3,14 @@ FLAGS = -c
 OBJECTS = Assignment2.o cmdline_parser.o Bucket_String.o Bucket.o
 LIBRARIES = -lboost_program_options
 TARGET= testme
-#RUNNINGARGS =  
+RUNNINGARGS =  -d stringFile.txt
 
 
 All: $(OBJECTS)
-	$(CC) $(OBJECTS) -o $(TARGET) $(LIBRARIES)
+	$(CC) $(OBJECTS) -o $(TARGET) $(LIBRARIES) 
 
 run: All
-	./$(TARGET)
+	./$(TARGET) $(RUNNINGARGS)
 
 Assignment2.o: Assignment2.cpp cmdline_parser.o Bucket_String.o
 	$(CC) $(FLAGS) Assignment2.cpp 

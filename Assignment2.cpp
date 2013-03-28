@@ -24,7 +24,6 @@ int main(int argc, char * argv[])
 	// Try parse command line arguments
 	if(!parser.process_cmdline(argc, argv))
 	{
-		std::cout << "testme";
 		// Complain to the standard error stream
 		std::cerr << "Couldn't process command line arguments" << std::endl;
 		return 1;

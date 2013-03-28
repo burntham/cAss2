@@ -26,7 +26,6 @@ namespace BRNDAN022
 						parent->outAll(os);
 						parent = hasChild;
 						hasChild = parent->child;
-						//parent->outAll(os);
 					}
 
 					//return os;
@@ -41,10 +40,9 @@ namespace BRNDAN022
 			while (!is.eof())
 			{	
 				char temp ='a';
-				is>>temp;	
+				is.get(temp);
 				if (!is.eof()){
-					bs.addChar(temp);
-				//std::cout<<temp<<" added"<<std::endl;				
+					bs.addChar(temp);	
 				}
 				
 			}
