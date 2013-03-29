@@ -31,6 +31,7 @@ namespace BRNDAN022
 					//return os;
 				
 				parent->outAll(os);
+
 				return os;		
 		};
 
@@ -74,6 +75,9 @@ namespace BRNDAN022
 		//Copy Constructor
 		Bucket_String(const Bucket_String & rhs);
 
+		//Copy Assignment operator
+		Bucket_String & operator=( Bucket_String & rhs);
+
 		//Return iterator pointing at the first character of the string
 		iterator begin();
 		//return an iterator pointing one location past the last string character
@@ -84,8 +88,6 @@ namespace BRNDAN022
 		void replace(iterator first, iterator second, Bucket_String bs);
 
 		Bucket_String & substr(iterator first,iterator last);
-
-
 
 		//Destructor
 		~Bucket_String()

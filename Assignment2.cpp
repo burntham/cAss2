@@ -17,7 +17,7 @@
 
 int main(int argc, char * argv[])
 {	using namespace BRNDAN022;
-//Code from assignment 1 (to be reused for cmdline input)	
+//Code from assignment 1 (to be reused for cmdline input) - command line has been slightly edited;
 	// Instantiate the parser
 	cmdline_parser parser;
 
@@ -28,14 +28,10 @@ int main(int argc, char * argv[])
 		std::cerr << "Couldn't process command line arguments" << std::endl;
 		return 1;
 	}	
-
 	//Print command line help to the standard output stream, if required
 	if(parser.should_print_help())
 		{ parser.print_help(std::cout);	}
-
-	//Instantiate the string thing
-	Bucket_String myBuckets(7);
-	//Show Copy Constructor is working
+//END OF CODE FROM ASSIGNMENT 1 
 
 ///File input::::
 	std::string sFileName = parser.get_string_filename();
@@ -43,23 +39,41 @@ int main(int argc, char * argv[])
 	std::fstream stringFile(filename);
 	std::string input;
 	std::getline(stringFile, input);
+	//input string stream for parsing string to Bucket_String
 	std::istringstream actualString(input);
 ////End of File input
-//Pass string stored in file to a bucket string
-	actualString>>myBuckets;
-//etc
-	Bucket_String Bucket1 = myBuckets;
 
-	iterator buck= myBuckets.begin();
-	iterator buckend= myBuckets.end();
+//Testing and Output:
+  //input bucket size
+	int BucketSize;
+	std::cout<<"Please enter desired bucket size (0 or a character will default it to 7):";
+	std::cin>>BucketSize; 
+	BucketSize = (BucketSize==0) ? 7: BucketSize;
+	std::cout<<"\n"<<"right oh! - each bucket will contain "<<BucketSize<<" characters."<<std::endl;
+	
+	//def constructor
+	Bucket_String bucketDefault(BucketSize);
+	//>>operator
+	actualString>>bucketDefault;
+	//copy constructor
+	Bucket_String bucketCopied(bucketDefault);
+	//copy Assignment operator test
+	Bucket_String bucketAssigned(7);
+	bucketAssigned = bucketDefault;
+	//<<operator
+	std::cout<<"output of original: ";
+	std::cout<<bucketDefault<<std::endl;
+	std::cout<<"output of copy constructed: ";
+	std::cout<<bucketCopied<<std::endl;
+	std::cout<<"output of copy assigned: ";
+	std::cout<<bucketAssigned<<std::endl;
 
-	Bucket_String test1(myBuckets);
-	test1.replace((test1.begin()+3),(test1.begin()+40),myBuckets);
 
-	std::cout<<test1<<std::endl;
-	//std::cout<<myBuckets<<std::endl;
-	//std::cout<<Bucket1<<std::endl;
 
-//end of code from assignment 1
+
+
+
+
+
 	return 0;
 }

@@ -46,8 +46,6 @@ namespace BRNDAN022
 			Bucket * copyTo = firstBuck;
 			copyTo->child = new Bucket(*(rhs.firstBuck->child));
 			
-
-
 			while (copyFrom->child!=NULL)
 			{
 				copyFrom = copyFrom->child;
@@ -61,6 +59,22 @@ namespace BRNDAN022
 		}	
 
 	}
+
+	Bucket_String & Bucket_String::operator=(Bucket_String & rhs)
+	{
+		if (this != &rhs){
+			Bucket_String * newBS = new Bucket_String(rhs);
+			destroyAll();
+			nOfBuckets = newBS->nOfBuckets;
+			firstBuck = newBS->firstBuck;
+			BucketSize = newBS->BucketSize;
+			charCount= newBS->charCount;
+			//delete newBS;
+		}
+
+		return *this; // Return a reference to the existing object!	
+
+	}	
 
 	Bucket_String & Bucket_String::substr(iterator first, iterator last)
 	{	
