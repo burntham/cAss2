@@ -106,7 +106,7 @@ namespace BRNDAN022
 			newBS->addChar(*(itBeg+i));
 		}
 		//Delete contents of old stuffs
-		destroyAll();
+		//destroyAll();
 		*this = *newBS;
 	};
 

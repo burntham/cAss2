@@ -83,22 +83,45 @@ int main(int argc, char * argv[])
 
 	//Iterator Testing;
 	std::cout<<"\n-----Iterator Testing------"<<std::endl;
-	iterator defaultBegin = bucketDefault.begin();
-	iterator defaultEnd = bucketDefault.end();
+	iterator defaultBegin = bucketDefault.begin();//create iterator
+	iterator defaultEnd = bucketDefault.end();//create iterator
 	std::cout<<"Printing String contents with *(iterator+i)"<<std::endl;
 	for (int i = 0; (defaultBegin+i)!=defaultEnd; ++i)
 	{
-		std::cout<<(*(defaultBegin+i));
+		std::cout<<(*(defaultBegin+i));//print all the characters
 	}std::cout<<"\n";
 	std::cout<<"Printing String contents with iterator++"<<std::endl;
 	while(defaultBegin!=defaultEnd){
 		std::cout<<*(defaultBegin++);
 	}std::cout<<"\n";
 
-	std::cout<<"\n-----insert, replace and subtring-----"<<std::endl;
-	String ninjas = "NINJA ninja's";
-	istringstream stream(ninjas);
+	std::cout<<"\n-----insert, replace and substring-----"<<std::endl;
+	std::string ninjas = "[->NINJA ninja's<-]";
+	std::cout<<"\""<<ninjas<<"\" will be inserted, and replacing stuff"<<std::endl;	
+	std::istringstream stream(ninjas);
+	//ninjaBucket
+	Bucket_String ninjaBucket(BucketSize);
+	stream>>ninjaBucket;
+	Bucket_String original(bucketDefault);
 
+	 std::cout<<"---Original String:\n"<<original<<std::endl;
+	
+	 int first = (original.length()/6);
+	 int last = (((original.length()/2))+(original.length()/8));
+	 std::cout<<"---Inserted String:"<<std::endl;
+	 Bucket_String copy1(original);
+	 copy1.insert((copy1.begin()+first),ninjaBucket);
+	 std::cout<<copy1<<std::endl;
+	 std::cout<<"---Replaced String"<<std::endl;
+	 Bucket_String copy2(original);
+	 copy2.replace((copy2.begin()+first),(copy2.begin()+last),ninjaBucket);
+	 std::cout<<copy2<<std::endl;
+	 std::cout<<"---Substring"<<std::endl;
+	 Bucket_String subStr(BucketSize);
+	 subStr = original.substr((original.begin()+first),(original.begin()+last));
+	 std::cout<<subStr<<std::endl; 
+
+	 std::cout<<"\nSo long and thanks for all the fish!"<<std::endl;
 
 
 
