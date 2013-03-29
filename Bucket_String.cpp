@@ -69,7 +69,6 @@ namespace BRNDAN022
 			firstBuck = newBS->firstBuck;
 			BucketSize = newBS->BucketSize;
 			charCount= newBS->charCount;
-			//delete newBS;
 		}
 
 		return *this; // Return a reference to the existing object!	

@@ -45,30 +45,59 @@ int main(int argc, char * argv[])
 
 //Testing and Output:
   //input bucket size
+
 	int BucketSize;
 	std::cout<<"Please enter desired bucket size (0 or a character will default it to 7):";
 	std::cin>>BucketSize; 
 	BucketSize = (BucketSize==0) ? 7: BucketSize;
-	std::cout<<"\n"<<"right oh! - each bucket will contain "<<BucketSize<<" characters."<<std::endl;
+	std::cout<<"right oh! - each bucket will contain "<<BucketSize<<" characters.\n"<<std::endl;
 	
 	//def constructor
 	Bucket_String bucketDefault(BucketSize);
 	//>>operator
 	actualString>>bucketDefault;
+	std::cout<<"Operator >> Used successfully on Bucket String"<<std::endl;
 	//copy constructor
 	Bucket_String bucketCopied(bucketDefault);
 	//copy Assignment operator test
-	Bucket_String bucketAssigned(7);
+	Bucket_String bucketAssigned(BucketSize);
 	bucketAssigned = bucketDefault;
 	//<<operator
-	std::cout<<"output of original: ";
+	std::cout<<"\n----Operator << Testing----"<<std::endl;
+	std::cout<<"output of original: "<<std::endl;
 	std::cout<<bucketDefault<<std::endl;
-	std::cout<<"output of copy constructed: ";
+	std::cout<<"output of copy constructed: "<<std::endl;
 	std::cout<<bucketCopied<<std::endl;
-	std::cout<<"output of copy assigned: ";
+	std::cout<<"output of copy assigned: "<<std::endl;
 	std::cout<<bucketAssigned<<std::endl;
 
+	//length and [] testing
+	std::cout<<"\n----Operator [] and length Testing----"<<std::endl;
+	std::cout<<"String Length(): "<<bucketDefault.length()<<std::endl;
+	std::cout<<"Printing all elements using []:\n";
+	for (int i = 0; i < bucketDefault.length(); ++i)
+	{
+		std::cout<<bucketDefault[i];
+	}std::cout<<"\n";
+	
 
+	//Iterator Testing;
+	std::cout<<"\n-----Iterator Testing------"<<std::endl;
+	iterator defaultBegin = bucketDefault.begin();
+	iterator defaultEnd = bucketDefault.end();
+	std::cout<<"Printing String contents with *(iterator+i)"<<std::endl;
+	for (int i = 0; (defaultBegin+i)!=defaultEnd; ++i)
+	{
+		std::cout<<(*(defaultBegin+i));
+	}std::cout<<"\n";
+	std::cout<<"Printing String contents with iterator++"<<std::endl;
+	while(defaultBegin!=defaultEnd){
+		std::cout<<*(defaultBegin++);
+	}std::cout<<"\n";
+
+	std::cout<<"\n-----insert, replace and subtring-----"<<std::endl;
+	String ninjas = "NINJA ninja's";
+	istringstream stream(ninjas);
 
 
 
